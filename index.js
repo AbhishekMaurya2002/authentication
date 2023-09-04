@@ -1,10 +1,10 @@
-const PORT = process.env.PORT || 3000;
-require("dotenv").config();
+// const PORT = process.env.PORT || 3000;
+// require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
-const ejs = require("ejs");
-const User = require("./models/User.js");
-const connectDB = require("./config/db.js");
+// const bodyParser = require("body-parser");
+// const ejs = require("ejs");
+// const User = require("./models/User.js");
+// const connectDB = require("./config/db.js");
 
 const app = express();
 connectDB();
@@ -26,12 +26,7 @@ app.get("/login", function (req, res) {
 app.get("/register", function (req, res) {
   res.render("register");
 });
-app.post('/logout', function(req, res){
-  req.logout() ;
-   
-    res.redirect('/');
- 
-});
+
 app.post("/register", async function (req, res) {
   const { username, password } = req.body;
   const newUser = new User({
@@ -65,6 +60,6 @@ app.post("/login", async function (req, res) {
   }
 });
 
-app.listen(PORT, function () {
-  console.log(`Server started on port ${PORT} 🚀.`);
+app.listen(3000, function () {
+  console.log(`Server started on port 3000 🚀.`);
 });
